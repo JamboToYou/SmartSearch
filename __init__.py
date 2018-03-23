@@ -3,17 +3,17 @@ from flask import request
 
 app = Flask(__name__)
 
+confirm = {'type': 'confirmation', 'group_id':164038901}
+
 @app.route('/', methods=['GET'])
 def index():
     return '<h1>Hello World</h1>'
 
-@app.route('/test', methods=['POST'])
-def test_post():
-    result = request.get_json()
-    req = ''
-    for k,v in result:
-        req += 'key : {} | value : {}'.format(k, v)
-    return req
+@app.route('/', methods=['POST'])
+def get_post():
+    r = request.get_json()
+    if r == confirm:
+        return 'b5ad317f'
 
 if __name__ == '__main__':
     app.run()
