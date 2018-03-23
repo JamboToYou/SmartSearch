@@ -7,7 +7,7 @@ Created on Fri Mar 23 20:45:24 2018
 
 import requests
 from bs4 import BeautifulSoup
-page = requests.get("https://www.google.dz/search?q=see")
+page = requests.get("http://www.google.ru/search?q=android&as_qdr=h5") #Запрос приводить к форме search?q=*
 soup = BeautifulSoup(page.content)
 import re
 links = soup.findAll("a")
