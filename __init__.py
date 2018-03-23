@@ -11,7 +11,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def get_post():
-    r = request.get_json()
+    r = dict(request.get_json())
     if r == confirm:
         return 'b5ad317f'
 
