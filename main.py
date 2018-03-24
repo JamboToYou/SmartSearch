@@ -1,18 +1,51 @@
 # coding=utf-8
-linkses = {"title":"www", "kkk":"www"}
-views = []
+import unparse
+from dbmanager import execute
+
+linkses = unparse.get_links('habrahabr.ru','android')
+views = ("Android","Java","C++","C#","Swift")
 
 
-def create_view_for_links():
+def create_view_for_links(links):
     view=""
-    for key,value in linkses.items():
+    for key,value in links.items():
         view += "{}\n{}\n".format(key, value)
     return view
 
+def create_view_for_views(view):
+    result=""
+    for i in range(0,len(view)):
+        result+= views[i]+"\n"
+    return result
+
+
+##############################
+
+def create_view_get_categories():
+    view = ""
+    result = execute("get_categories")
+    for cortege in result:
+        view+="{}. {}".format(str(cortege[0]), cortege[1])
+    return view
+
+def create_view_content_of_category(category_id):
+    view = ""
+    result = execute("get_content_of_category",category_id=category_id)
+    for i in result:
+        view+="{}. {}".format(str(i[0]),i[1])
+    return view
+
+def create_view_subscribe_to_category(category_id, user_id):
+    view = ""
+    result = execute("subscribe_to_category", category_id=category_id, user_id=user_id)
+    for i in result:
+        view += "{}. {}".format(str(i[0]), i[1], i[2])
+    return view
+
+##############################
+
 
 def main():
-    print(create_view_for_links())
-
 
 if __name__ == '__main__':
     main()
