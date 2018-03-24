@@ -25,7 +25,7 @@ def parse_command(msg_obj):
         elif command == 'addsource':
             try:
                 source = command_container[1]
-                return main.create_view_add_content()
+                return main.create_view_add_content(source, )
             except:
                 raise
         elif command == 'leave':

@@ -42,7 +42,9 @@ def create_view_subscribe_to_category(category_id, user_id):
     elif (r == 0):
         return "Ошибка подписки на категорию"
 
-def create_view_add_content(category_id, source):
+subsc_err = "Укажите ID категории"
+
+def create_view_add_content(category_id, source, user_id):
     r = execute("add_content", category_id=category_id, source=source)
     if (r==1):
         return "Добавление содержания прошло успешно"
@@ -75,8 +77,3 @@ def create_view_content_of_category(category_id):
 
 ##############################
 
-
-def main():
-
-if __name__ == '__main__':
-    main()

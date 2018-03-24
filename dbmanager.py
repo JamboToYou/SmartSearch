@@ -38,9 +38,13 @@ def get_content_of_category(c, category_id):
     result = c.fetchall()
     return result
 
-#Андрей, посмотри, солнышко
 def get_category_name_by_id(c, category_id):
     c.execute("SELECT name FROM Category WHERE category_id = %s", category_id)
+    result = c.fetchall()
+    return result
+
+def get_user_subscriptions(c, user_id):
+    c.execute("SELECT category_id FROM CategoryList WHERE user_id = %s", user_id)
     result = c.fetchall()
     return result
 
