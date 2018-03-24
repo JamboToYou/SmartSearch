@@ -61,6 +61,7 @@ def create_view_get_categories():
     return view
 
 def create_view_content_of_category(category_id):
+    """
     view = {"--Заголовки":"Ссылки"}
 
     view_string = ""
@@ -82,6 +83,17 @@ def create_view_content_of_category(category_id):
         view_string += "--{}.\n {}\n".format(key,value)
 
     return view_string
+    """
+    result = execute("get_content_of_category", category_id=category_id)
+    if result == ():
+        return "Нет ресурсов"
+
+    view = ''
+
+    for cont in result:
+        view += '{}\n'.format(cont[0])
+
+    return view
 
 cntctgerr = "Не указан ID категории"
 
