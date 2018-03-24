@@ -43,7 +43,12 @@ def get_category_name_by_id(c, category_id):
     c.execute("SELECT name FROM Category WHERE category_id = %s", category_id)
     result = c.fetchall()
     return result
-
+def leave_from_category(c, category_id, user_id):
+    result = c.execute("DELETE FROM CategoryList WHERE user_id = %s AND category_id = %s",(user_id, category_id))
+    return result
+def delete_source(c,content_id,user_id,category_id):
+    result = c.execute("")
+    return result
 methods = \
     {
         "add_user" : add_user,
@@ -54,7 +59,9 @@ methods = \
         "get_categories" : get_categories,
         "get_category_subscribers" : get_category_subscribers,
         "get_content_of_category" : get_content_of_category,
-        "get_category_name_by_id" : get_category_name_by_id
+        "get_category_name_by_id" : get_category_name_by_id,
+        "leave_from_category" : leave_from_category,
+        "delete_source" : delete_source
     }
 
 def execute(method_name, **kwargs):

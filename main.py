@@ -72,7 +72,23 @@ def create_view_content_of_category(category_id):
 
     return view_string
 
+def create_view_leave_from_category(user_id, category_id):
+    view = ""
+    result = execute("leave_from_category", category_id = category_id,user_id = user_id )
+    if result == 1:
+        view += "Успешно удалено"
+    else:
+        view += "Ошибка удаления"
+    return view
 
+def create_view_delete_source():
+    view = ""
+    result = execute("")
+    if result == 1:
+        view += "Успешно удалено"
+    else:
+        view += "Ошибка удаления"
+    return view
 ##############################
 
 
