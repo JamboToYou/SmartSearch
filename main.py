@@ -45,12 +45,13 @@ def create_view_subscribe_to_category(category_id, user_id):
 subsc_err = "Укажите ID категории"
 
 def create_view_add_content(category_id, source, user_id):
-    r = execute("add_content", category_id=category_id, source=source)
+    r = execute("add_content_from_user", category_id=category_id, source=source, user_id=user_id)
     if (r==1):
         return "Добавление содержания прошло успешно"
     elif(r==0):
         return "Ошибка добавления содержания"
 
+adderr = "Не введен один из параметров"
 
 def create_view_get_categories():
     view = ""
@@ -64,8 +65,16 @@ def create_view_content_of_category(category_id):
 
     view_string = ""
 
+    keyword = execute("get_category_name_by_id", category_id=category_id)
+    if keyword == ():
+        return "Нет категории с таким ID"
+
+    keyword = keyword[0][0]
+
     result = execute("get_content_of_category",category_id=category_id)
-    keyword = execute("get_category_name_by_id", category_id=category_id)[0][0]
+    if result == ():
+        return "У этой категории пока нет контента"
+
     for content in result:
         view = dict(view, **unparse.get_links(content[0], keyword))
 
@@ -74,22 +83,28 @@ def create_view_content_of_category(category_id):
 
     return view_string
 
+cntctgerr = "Не указан ID категории"
+
 def create_view_leave_from_category(user_id, category_id):
     view = ""
     result = execute("leave_from_category", category_id = category_id,user_id = user_id )
     if result == 1:
         view += "Успешно удалено"
     else:
-        view += "Ошибка удаления"
+        view += "Вы не подписаны на эту категорию"
     return view
 
-def create_view_delete_source():
+leaveerr = "Не указан ID категории"
+
+def create_view_delete_source(content_id, user_id, category_id):
     view = ""
-    result = execute("")
+    result = execute("delete_source", content_id=content_id, user_id=user_id, category_id=category_id)
     if result == 1:
         view += "Успешно удалено"
     else:
         view += "Ошибка удаления"
     return view
+
+delerr = "Не указан один из параметров"
 ##############################
 

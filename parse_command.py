@@ -25,18 +25,27 @@ def parse_command(msg_obj):
         elif command == 'addsource':
             try:
                 source = command_container[1]
-                return main.create_view_add_content(source, )
+                category_id = command_container[2]
+                return main.create_view_add_content(category_id, source, usr_id)
             except:
-                raise
+                main.adderr
         elif command == 'leave':
             try:
                 category_id = command_container[1]
-                return main.leave_from_category(usr_id, category_id)
+                return main.create_view_leave_from_category(usr_id, category_id)
             except:
-                raise
+                main.leaveerr
         elif command == 'sourcelist':
-            category_id = command_container[1]
-            return main.create_view_content_of_category(category_id)
+            try:
+                category_id = command_container[1]
+                return main.create_view_content_of_category(category_id)
+            except:
+                return main.cntctgerr
         elif command == 'deletesource':
-            pass#TODO
+            try:
+                content_id = command_container[1]
+                category_id = command_container[2]
+                return main.create_view_delete_source(content_id, usr_id, category_id)
+            except:
+                return main.delerr
 
