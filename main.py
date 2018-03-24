@@ -2,8 +2,8 @@
 import unparse
 from dbmanager import execute
 
-linkses = unparse.get_links('habrahabr.ru','android')
-views = ("Android","Java","C++","C#","Swift")
+#linkses = unparse.get_links('habrahabr.ru','android')
+#views = ("Android","Java","C++","C#","Swift")
 
 
 def create_view_for_links(links):
@@ -37,9 +37,9 @@ def create_view_add_category(category_name):
 
 def create_view_subscribe_to_category(category_id, user_id):
     r = execute("subscribe_to_category", category_id=category_id, user_id=user_id)
-    if (r == 1):
+    if r == 1:
         return "Подписка на категорию прошла успешно"
-    elif (r == 0):
+    else:
         return "Ошибка подписки на категорию"
 
 subsc_err = "Укажите ID категории"
@@ -61,7 +61,8 @@ def create_view_get_categories():
     return view
 
 def create_view_content_of_category(category_id):
-    view = {}
+    """
+    view = {"--Заголовки":"Ссылки"}
 
     view_string = ""
 
@@ -79,9 +80,20 @@ def create_view_content_of_category(category_id):
         view = dict(view, **unparse.get_links(content[0], keyword))
 
     for key,value in view.items():
-        view_string+="{}.\n {}\n".format(key,value)
+        view_string += "--{}.\n {}\n".format(key,value)
 
     return view_string
+    """
+    result = execute("get_content_of_category", category_id=category_id)
+    if result == ():
+        return "Нет ресурсов"
+
+    view = ''
+
+    for cont in result:
+        view += '{}\n'.format(cont[0])
+
+    return view
 
 cntctgerr = "Не указан ID категории"
 

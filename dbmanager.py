@@ -11,7 +11,7 @@ def add_category(c, category_name):
     return result
 
 def subscribe_to_category(c, category_id, user_id):
-    result = c.execute("INSERT INTO CategoriesList(user_id, category_id) VALUES(%s, %s)", (user_id, category_id))
+    result = c.execute("INSERT INTO CategoryList(user_id, category_id) VALUES(%s, %s)", (user_id, category_id))
     return result
 
 def add_content(c, category_id, source):
@@ -51,7 +51,7 @@ def get_content_of_category(c, category_id):
     return result
 
 def get_category_name_by_id(c, category_id):
-    c.execute("SELECT name FROM Category WHERE category_id = %s", category_id)
+    c.execute("SELECT category_name FROM Categories WHERE category_id = %s", category_id)
     result = c.fetchall()
     return result
 
