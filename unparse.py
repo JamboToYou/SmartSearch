@@ -7,10 +7,10 @@ Created on Fri Mar 23 20:45:24 2018
 import requests
 from bs4 import BeautifulSoup
 
-def get_links(keyword):
+def get_links(site,keyword):
     
-    url = "http://google.ru/search?q="+keyword
-    
+    url = "https://google.ru/search?q="+keyword+"&as_sitesearch="+site+"&as_qdr=d3"
+    print(url)
     links = []
     
     response = requests.get(url)
@@ -22,4 +22,4 @@ def get_links(keyword):
             
     return links
 
-print(get_links('android'))
+#print(get_links('habrahabr.ru','android'))
