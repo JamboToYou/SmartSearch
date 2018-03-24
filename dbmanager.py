@@ -38,6 +38,11 @@ def get_content_of_category(c, category_id):
     result = c.fetchall()
     return result
 
+#Андрей, посмотри, солнышко
+def get_category_name_by_id(c, category_id):
+    c.execute("SELECT name FROM Category WHERE category_id = %s", category_id)
+    result = c.fetchall()
+    return result
 
 methods = \
     {
