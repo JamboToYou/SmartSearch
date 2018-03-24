@@ -7,7 +7,11 @@ def search():
     cat_list = execute("get_categories")
     for cat in cat_list:
         cat_users = execute("get_category_subscribers", category_id=cat[0])
+        if cat_users == ():
+            continue
         cont_corts = execute("get_content_of_category", category_id=cat[0])
+        if cont_corts == ():
+            continue
         cont_list = []
         for cont in cont_corts:
             cont_list.append(cont[0])
