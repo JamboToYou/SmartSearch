@@ -4,5 +4,5 @@ data = \
         "user_login" : "emtech0smartsear",
         "user_password" : "123456789q",
         "db_host" : "emtech0smartsearch.mysql.pythonanywhere-services.com",
-        "db_name" : "emtech0smartsear&BotData"
+        "db_name" : "emtech0smartsear$BotData"
     }
