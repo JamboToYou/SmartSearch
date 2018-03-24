@@ -22,4 +22,4 @@ def get_links(site,keyword):
             
     return links
 
-print(get_links('habrahabr.ru','android'))
+#print(get_links('habrahabr.ru','android'))
