@@ -1,23 +1,6 @@
 # coding=utf-8
-import unparse
+
 from dbmanager import execute
-
-#linkses = unparse.get_links('habrahabr.ru','android')
-#views = ("Android","Java","C++","C#","Swift")
-
-
-def create_view_for_links(links):
-    view=""
-    for key,value in links.items():
-        view += "{}\n{}\n".format(key, value)
-    return view
-
-def create_view_for_views(view):
-    result=""
-    for i in range(0,len(view)):
-        result+= views[i]+"\n"
-    return result
-
 
 ##############################
 
