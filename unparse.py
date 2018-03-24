@@ -7,7 +7,9 @@ Created on Fri Mar 23 20:45:24 2018
 import requests
 from bs4 import BeautifulSoup
 
-def get_links(url):
+def get_links(keyword):
+    
+    url = "http://google.ru/search?q="+keyword
     
     links = []
     
@@ -20,4 +22,4 @@ def get_links(url):
             
     return links
 
-#print(get_links('https://www.google.ru/search?q=android'))
+print(get_links('android'))
