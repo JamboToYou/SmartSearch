@@ -7,10 +7,11 @@ Created on Fri Mar 23 20:45:24 2018
 import requests
 from bs4 import BeautifulSoup
 
-def get_links(keyword):
+def get_links(site,keyword):
     
-    url = "http://google.ru/search?q="+keyword
-    
+    url = "http://google.ru/search?q="+keyword+"&as_sitesearch="+site+"&as_qdr=d3"
+    #url = "http://google.ru/search?q=site: habrahabr.ru android"
+    print(url)
     links = []
     
     response = requests.get(url)
@@ -18,8 +19,9 @@ def get_links(keyword):
     
     for item in soup.select(".r a"):
         if("http" in str(item)):
+            #links.append(item)
             links.append(str(item)[str(item).index('http'):str(item).index('&')])
             
     return links
 
-print(get_links('android'))
+print(get_links('habrahabr.ru','android'))
