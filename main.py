@@ -49,18 +49,12 @@ def create_view_add_content(category_id, source):
     elif(r==0):
         return "Ошибка добавления содержания"
 
-def create_view_get_users():
-    view = ""
-    result = execute("get_users")
-    for cortege in result:
-        view += "{}. {}\n".format(str(cortege[0]), str(cortege[1]))
-    return view
 
 def create_view_get_categories():
     view = ""
     result = execute("get_categories")
     for cortege in result:
-        view+="{}. {}\n".format(str(cortege[0]), str(cortege[1]))
+        view+="{}. {}\n".format(str(cortege[0]), cortege[1])
     return view
 
 def create_view_content_of_category(category_id):
