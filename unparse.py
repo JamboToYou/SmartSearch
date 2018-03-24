@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 def get_links(site,keyword):
     
-    url = "http://google.ru/search?q="+keyword+"&as_sitesearch="+site+"&as_qdr=d3"
+    url = "https://google.ru/search?q="+keyword+"&as_sitesearch="+site+"&as_qdr=d3"
     #url = "http://google.ru/search?q=site: habrahabr.ru android"
     print(url)
     links = []
