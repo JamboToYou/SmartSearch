@@ -17,4 +17,22 @@ def parse_command(msg_obj):
         if command == 'categorylist':
             return main.create_view_get_categories()
         elif command == 'join':
-            pass
+            try:
+                category_id = command_container[1]
+                return main.create_view_subscribe_to_category(category_id, usr_id)
+            except:
+                return main.subsc_err
+        elif command == 'addsource':
+            try:
+                source = command_container[1]
+                return main.create_view_add_content()
+            except:
+                raise
+        elif command == 'leave':
+            #TODO
+        elif command == 'sourcelist':
+            category_id = command_container[1]
+            return main.create_view_content_of_category(category_id)
+        elif command == 'deletesource':
+            #TODO
+
