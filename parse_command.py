@@ -29,10 +29,14 @@ def parse_command(msg_obj):
             except:
                 raise
         elif command == 'leave':
-            #TODO
+            try:
+                category_id = command_container[1]
+                return main.leave_from_category(usr_id, category_id)
+            except:
+                raise
         elif command == 'sourcelist':
             category_id = command_container[1]
             return main.create_view_content_of_category(category_id)
         elif command == 'deletesource':
-            #TODO
+            pass#TODO
 
