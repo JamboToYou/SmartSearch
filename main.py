@@ -31,15 +31,15 @@ def create_view_get_categories():
 def create_view_content_of_category(category_id):
     view = ""
     result = execute("get_content_of_category",category_id=category_id)
-    for i in result:
-        view+="{}. {}".format(str(i[0]),i[1])
+    for cortege in result:
+        view+="{}. {}".format(str(cortege[0]),cortege[1])
     return view
 
 def create_view_subscribe_to_category(category_id, user_id):
     view = ""
     result = execute("subscribe_to_category", category_id=category_id, user_id=user_id)
-    for i in result:
-        view += "{}. {}".format(str(i[0]), i[1], i[2])
+    for cortege in result:
+        view += "{}. {}".format(str(cortege[0]), cortege[1], cortege[2])
     return view
 
 ##############################
