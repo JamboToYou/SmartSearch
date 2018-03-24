@@ -53,7 +53,8 @@ methods = \
         "get_users" : get_users,
         "get_categories" : get_categories,
         "get_category_subscribers" : get_category_subscribers,
-        "get_content_of_category" : get_content_of_category
+        "get_content_of_category" : get_content_of_category,
+        "get_category_name_by_id" : get_category_name_by_id
     }
 
 def execute(method_name, **kwargs):
