@@ -118,5 +118,13 @@ def create_view_delete_source(content_id, user_id, category_id):
     return view
 
 delerr = "Не указан один из параметров"
+
+def create_view_form_digest(source_dict):
+    view = ""
+
+    for title, url in source_dict.items():
+        view += "{}\n{}\n".format(title, url)
+
+    return view
 ##############################
 
