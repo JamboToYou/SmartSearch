@@ -117,7 +117,7 @@ def create_view_help():
 4) Отписаться от дайджеста /leave <id>
 5) Список источников /sourcelist <id>
 6) удалить ресурс /deletesource <id_source> <count>"""
-	return view
+    return view
 
 def create_view_search(sites, keyword):
     view = ""
@@ -126,6 +126,10 @@ def create_view_search(sites, keyword):
 
     for k,v in json_dict:
         view += k + '\n' + v + '\n'
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4419cd76ea46485e04014ef7185b9adc8bb584a
     return view
 ##############################
 
