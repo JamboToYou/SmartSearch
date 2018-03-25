@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from dbmanager import execute
-
+import unparse
 ##############################
 
 def create_view_add_user(user_id):
@@ -110,6 +110,7 @@ def create_view_form_digest(source_dict):
 
     return view
 
+<<<<<<< HEAD
 def create_view_help():
     view ="""1) Список тем для подписок /categorylist
 2) Присоединиться к рассылке /join <id>
@@ -117,7 +118,16 @@ def create_view_help():
 4) Отписаться от дайджеста /leave <id>
 5) Список источников /sourcelist <id>
 6) удалить ресурс /deletesource <id_source> <count>"""
+=======
+def create_view_search(sites, keyword):
+    view = ""
+
+    json_dict = unparse.get_links(sites, keyword)
+
+    for k,v in json_dict:
+        view += k + '\n' + v + '\n'
+
+>>>>>>> 444c68ca41172cdb4f36e628aa8bffa63ec83070
     return view
-    
 ##############################
 

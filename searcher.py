@@ -15,9 +15,10 @@ def search():
         cont_list = []
         for cont in cont_corts:
             cont_list.append(cont[0])
-        search_result = requests.post('https://andreytyu.pythonanywhere.com/getLinks', json={"get_links":True, "site":cont_list, "keyword":cat[1]})
+#        search_result = requests.post('https://andreytyu.pythonanywhere.com/getLinks', json={"get_links":True, "site":cont_list, "keyword":cat[1]})
+        search_result = main.create_view_search(cont_list, cat[1])
 
-        view = main.create_view_form_digest(search_result.json())
+#        view = main.create_view_form_digest(search_result.json())
 
         for user in cat_users:
-            vk_module.send_message(user[0], view)
+            vk_module.send_message(user[0], search_result)
