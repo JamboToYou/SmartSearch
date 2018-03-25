@@ -67,14 +67,14 @@ def create_view_content_of_category(category_id):
 
     return view_string
     """
-    result = execute("get_content_of_category", category_id=category_id)
+    result = execute("get_content_of_category",category_id=category_id)
     if result == ():
         return "Нет ресурсов"
 
     view = ''
 
     for cont in result:
-        view += '{}\n'.format(cont[0])
+        view += '{}. {}\n'.format(cont[0],cont[1])
 
     return view
 
@@ -126,8 +126,6 @@ def create_view_search(sites, keyword):
 
     for k,v in json_dict:
         view += k + '\n' + v + '\n'
-
->>>>>>> 444c68ca41172cdb4f36e628aa8bffa63ec83070
     return view
 ##############################
 
