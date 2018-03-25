@@ -110,7 +110,6 @@ def create_view_form_digest(source_dict):
 
     return view
 
-<<<<<<< HEAD
 def create_view_help():
     view ="""1) Список тем для подписок /categorylist
 2) Присоединиться к рассылке /join <id>
@@ -118,7 +117,8 @@ def create_view_help():
 4) Отписаться от дайджеста /leave <id>
 5) Список источников /sourcelist <id>
 6) удалить ресурс /deletesource <id_source> <count>"""
-=======
+	return view
+
 def create_view_search(sites, keyword):
     view = ""
 
