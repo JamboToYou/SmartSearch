@@ -117,7 +117,7 @@ def create_view_help():
 3) Добавить ресурс /addsource <your_link> <category_id>
 4) Отписаться от дайджеста /leave <category_id>
 5) Список источников /sourcelist <category_id>
-6) удалить ресурс /deletesource <content_id> <category_id>"""
+6) удалить ресурс /deletesource <content_id> <category_id> """
     return view
 
 def create_view_search(sites, keyword):
