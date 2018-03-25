@@ -67,14 +67,14 @@ def create_view_content_of_category(category_id):
 
     return view_string
     """
-    result = execute("get_content_of_category", category_id=category_id)
+    result = execute("get_content_of_category",category_id=category_id)
     if result == ():
         return "Нет ресурсов"
 
     view = ''
 
     for cont in result:
-        view += '{}\n'.format(cont[0])
+        view += '{}. {}\n'.format(cont[0],cont[1])
 
     return view
 
@@ -111,12 +111,13 @@ def create_view_form_digest(source_dict):
     return view
 
 def create_view_help():
-    view ="""1) Список тем для подписок /categorylist
-2) Присоединиться к рассылке /join <id>
-3) Добавить ресурс /addsource
-4) Отписаться от дайджеста /leave <id>
-5) Список источников /sourcelist <id>
-6) удалить ресурс /deletesource <id_source> <count>"""
+    view ="""
+    1) Список тем для подписок /categorylist
+2) Присоединиться к рассылке /join <category_id>
+3) Добавить ресурс /addsource <your_link> <category_id>
+4) Отписаться от дайджеста /leave <category_id>
+5) Список источников /sourcelist <category_id>
+6) удалить ресурс /deletesource <content_id> <category_id>"""
     return view
 
 def create_view_search(sites, keyword):
