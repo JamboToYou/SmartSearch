@@ -111,7 +111,7 @@ def create_view_form_digest(source_dict):
     return view
 
 def create_view_help():
-    view ="""Начать /start
+    view ="""
     1) Список тем для подписок /categorylist
 2) Присоединиться к рассылке /join <category_id>
 3) Добавить ресурс /addsource <your_link> <category_id>
