@@ -116,7 +116,7 @@ def create_view_help():
 3) Добавить ресурс /addsource
 4) Отписаться от дайджеста /leave <id>
 5) Список источников /sourcelist <id>
-6) удалить ресурс /deletesource <id_source>"""
+6) удалить ресурс /deletesource <id_source> <count>"""
     return view
     
 ##############################
