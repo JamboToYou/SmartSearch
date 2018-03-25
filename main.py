@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from dbmanager import execute
-
+import unparse
 ##############################
 
 def create_view_add_user(user_id):
@@ -107,6 +107,16 @@ def create_view_form_digest(source_dict):
 
     for title, url in source_dict.items():
         view += "{}\n{}\n".format(title, url)
+
+    return view
+
+def create_view_search(sites, keyword):
+    view = ""
+
+    json_dict = unparse.get_links(sites, keyword)
+
+    for k,v in json_dict:
+        view += k + '\n' + v + '\n'
 
     return view
 ##############################
