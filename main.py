@@ -109,5 +109,15 @@ def create_view_form_digest(source_dict):
         view += "{}\n{}\n".format(title, url)
 
     return view
+
+def create_view_help():
+    view ="""1) Список тем для подписок /categorylist
+2) Присоединиться к рассылке /join <id>
+3) Добавить ресурс /addsource
+4) Отписаться от дайджеста /leave <id>
+5) Список источников /sourcelist <id>
+6) удалить ресурс /deletesource <id_source>"""
+    return view
+    
 ##############################
 
