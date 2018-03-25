@@ -46,7 +46,7 @@ def get_category_subscribers(c, category_id):
     return result
 
 def get_content_of_category(c, category_id):
-    c.execute("SELECT source FROM Content WHERE category_id = %s", category_id)
+    c.execute("SELECT content_id, source FROM Content WHERE category_id = %s", category_id)
     result = c.fetchall()
     return result
 
