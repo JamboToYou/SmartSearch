@@ -112,11 +112,11 @@ def create_view_form_digest(source_dict):
 
 def create_view_help():
     view ="""1) Список тем для подписок /categorylist
-2) Присоединиться к рассылке /join <id>
-3) Добавить ресурс /addsource
-4) Отписаться от дайджеста /leave <id>
-5) Список источников /sourcelist <id>
-6) удалить ресурс /deletesource <id_source> <count>"""
+2) Присоединиться к рассылке /join <category_id>
+3) Добавить ресурс /addsource <your_link> <category_id>
+4) Отписаться от дайджеста /leave <category_id>
+5) Список источников /sourcelist <category_id>
+6) удалить ресурс /deletesource <content_id> <category_id>"""
     return view
 
 def create_view_search(sites, keyword):
@@ -126,10 +126,7 @@ def create_view_search(sites, keyword):
 
     for k,v in json_dict:
         view += k + '\n' + v + '\n'
-<<<<<<< HEAD
-=======
 
->>>>>>> f4419cd76ea46485e04014ef7185b9adc8bb584a
     return view
 ##############################
 
